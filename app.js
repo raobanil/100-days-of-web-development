@@ -1,19 +1,24 @@
-let h1Element = document.body.children[0];
-console.dir(h1Element);
+let isClicked = false;
+let paragraphElement = document.querySelector('p');
 
-let bodyElement = h1Element.parentElement;
-console.dir(bodyElement);
+function handleClickEvent() {
+    if (isClicked === false) {
+        let hrElement = document.createElement('hr');
+        paragraphElement.append(hrElement);
+        isClicked = true;
+    }
+    let clickedElement = document.createElement('p');
+    clickedElement.textContent = 'Clicked!';
+    paragraphElement.append(clickedElement);
+}
 
-let pSiblingElement = h1Element.nextElementSibling;
-console.dir(pSiblingElement);
+paragraphElement.addEventListener('click', handleClickEvent);
 
-let sameH1Element = document.getElementById("first-title");
-console.dir(sameH1Element);
+let inputElement = document.querySelector('input');
 
-// ADD AN ELEMENT
-let newAnchorElement = document.createElement('a');
-newAnchorElement.textContent = 'This anchor element was added by code!';
-newAnchorElement.href = 'https://github.com';
+function retrieveUserInput() {
+    let enteredText = inputElement.value;
+    console.log(enteredText);
+}
 
-let firstParagraph = document.querySelector('p');
-firstParagraph.append(newAnchorElement);
+inputElement.addEventListener('input', retrieveUserInput);
