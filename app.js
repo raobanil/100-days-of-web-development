@@ -10,7 +10,10 @@ console.dir(pSiblingElement);
 let sameH1Element = document.getElementById("first-title");
 console.dir(sameH1Element);
 
-let firstParagraph = document.querySelector(".first-paragraph");
-console.dir(firstParagraph);
+// ADD AN ELEMENT
+let newAnchorElement = document.createElement('a');
+newAnchorElement.textContent = 'This anchor element was added by code!';
+newAnchorElement.href = 'https://github.com';
 
-firstParagraph.textContent = 'This was changed by code';
+let firstParagraph = document.querySelector('p');
+firstParagraph.append(newAnchorElement);
